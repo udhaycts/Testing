@@ -1,0 +1,7 @@
+---
+applications:
+- name: successcupsudhay
+  memory: 128M
+  instances: 1
+  services:
+   - successcupsudhay-mongodb-2016-07-1406:34:34.865
