@@ -1,0 +1,91 @@
+<!-- THIS FILE IS THE SINGLE HTML FILE WHICH IS DISPLAYED AS SOON AS THE APPLICATION IS LAUNCHED. IT CONTAINS
+ ALL THE UI COMPONENTS REQUIRED FOR THE TO DO APPLICATION-->
+
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="toDo">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <title>Node/Angular Todo App</title>
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"><!-- load bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/toDo.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script><!-- load angular -->
+    <script src="./controllers/toDo.js"></script> <!-- load up our controller -->
+    <script src="./services/toDo.js"></script> <!-- load up our services -->
+
+</head>
+<!-- SET THE CONTROLLER -->
+<body>
+<div class='navContent'>
+    <img style='position:absolute;margin: 12px 10px;' src="./assets/img/logo.png"/>
+    <h1 class="heading">Node - Angular ToDo</h1>
+</div>
+<div class="container" ng-controller="ToDoController">
+
+    <!-- HEADER AND TODO COUNT -->
+    <div class="heading-container">
+        <h1>To do List <span class="badge size"> {{ todos.length }}</span></h1>
+    </div>
+
+    <!-- FORM TO CREATE TODOS -->
+    <div id="todo-form" class="row" >
+        <div class="col-sm-12 text-center" >
+            <form>
+                <div class="form-group">
+                    <div class="input-group width">
+                        <input type="text" id="inputText" class="form-control margin-top  text-center" placeholder="Add to do" ng-model="formData.task_name">
+                 <span class="input-group-btn">
+              <button class="btn btn-primary margin-top" type="submit" ng-click="createTodo();">+</button>
+              </span>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- TODO LIST -->
+    <div id="todo-list" class="row">
+        <div  class="col-sm-4 margin-top" >
+
+            <!-- LOOP OVER THE TODOS IN $scope.todos -->
+
+            <div class="checkbox" ng-repeat="todo in todos">
+                <label class="labelWidth" ng-hide="todo.isEditable"><b>{{ todo.task_name }}</b></label>
+
+                <a href="#" class="btn" id="icon1_{{todo._id}}">
+                    <span class="glyphicon glyphicon-pencil"  ng-click="toggleEdit(todo);"></span>
+                </a>
+                <a href="#" class="btn"  id="icon2_{{todo._id}}">
+                    <span class="glyphicon glyphicon-trash"  ng-click="deleteTodo(todo);"></span>
+                </a>
+
+
+                <input type="text" class="labelWidth"  id ={{todo._id}} ng-show="todo.isEditable" value={{todo.task_name}}>
+                <a href="#" class="btn" id="icon3_{{todo._id}}" style="display: none;">
+                    <span class="glyphicon glyphicon-ok" ng-click="saveEdit(todo);" ></span>
+                </a>
+                <a href="#" class="btn" id="icon4_{{todo._id}}" style="display: none;">
+                    <span class="glyphicon glyphicon-remove"  ng-click="cancelEdit(todo);"></span>
+                </a>
+
+
+            </div>
+            <!-- SHOW LOADING INDICATOR WHILE SERVICE CALL IS MADE -->
+            <p class="text-center" ng-show="loading">
+                <span class="fa fa-spinner fa-spin fa-3x"></span>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

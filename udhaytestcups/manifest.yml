@@ -1,0 +1,7 @@
+---
+applications:
+- name: udhaytestcups
+  memory: 128M
+  instances: 1
+  services:
+   - udhaytestcups-mongodb-2016-07-1407:06:37.195

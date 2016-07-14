@@ -1,0 +1,44 @@
+{
+  "license" : "ISC",
+  "devDependencies" : {
+    "karma" : "^0.13.22",
+    "gulp" : "^3.9.1",
+    "chai" : "^3.5.0",
+    "phantomjs" : "^2.1.7",
+    "jshint-stylish" : "^2.2.0",
+    "karma-jasmine" : "^1.0.2",
+    "phantom-jasmine" : "latest",
+    "gulp-istanbul" : "^0.10.4",
+    "chai-http" : "^2.0.1",
+    "karma-spec-reporter" : "0.0.26",
+    "angular" : "^1.5.6",
+    "gulp-mocha" : "^2.2.0",
+    "expect.js" : "^0.3.1",
+    "jshint" : "*",
+    "phantomjs-prebuilt" : "^2.1.4",
+    "angular-mocks" : "^1.5.6",
+    "karma-phantomjs-launcher" : "^1.0.0",
+    "gulp-jshint" : "^2.0.1",
+    "karma-coverage" : "^1.0.0",
+    "jasmine-core" : "^2.4.1"
+  },
+  "engines" : {
+    "node" : "4.4.5"
+  },
+  "author" : "Cognizant Technology Solutions",
+  "name" : "customapp",
+  "description" : "Sample TodoApp",
+  "main" : "app.js",
+  "scripts" : {
+    "start" : "node app.js"
+  },
+  "version" : "1.0.0",
+  "dependencies" : {
+    "angular" : "^1.5.6",
+    "mongoose" : "^4.4.17",
+    "cfenv" : "1.0.3",
+    "express" : "~4.13.1",
+    "angular-mocks" : "^1.5.6",
+    "body-parser" : "~1.5.2"
+  }
+}
